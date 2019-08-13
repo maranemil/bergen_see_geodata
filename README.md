@@ -24,3 +24,10 @@
 #### Tools
 
 * https://www.openstreetmap.org/relation/2930833#map=12/48.2176/11.7557
+* https://www.openstreetmap.de/
+* https://wego.here.com/?map=50.95523,6.95646,8,normal&x=ep
+* https://www.bing.com/maps
+* https://www.mapquest.com/
+* https://www.osmand.net/
+* https://www.google.de/maps?hl=en&tab=rl
+* https://developers.google.com/maps/documentation/maps-static/intro?hl=de
