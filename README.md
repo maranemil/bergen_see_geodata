@@ -1,4 +1,4 @@
-## Geodata from Mountains and Lakes from Germany Swiss and Austria
+## Mountains and Lakes Geodata from Germany Swiss and Austria
 
 [![Editor Screen](https://raw.githubusercontent.com/maranemil/bergen_see_geodata/master/screens/bw_lakes.png)](#features)
 
