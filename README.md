@@ -44,3 +44,11 @@
 * https://openlayers.org/en/latest/examples/
 * https://github.com/mapbox/mapbox-gl-leaflet
 
+#### Python References
+
+* https://github.com/python-visualization/folium
+* https://github.com/komoot/staticmap
+* https://python-visualization.github.io/folium/quickstart.html
+* https://plot.ly/python/scattermapbox/#multiple-markers
+* https://python-graph-gallery.com/315-a-world-map-of-surf-tweets/
+* https://python-graph-gallery.com/312-add-markers-on-folium-map/
