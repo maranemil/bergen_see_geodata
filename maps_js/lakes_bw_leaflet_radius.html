@@ -129,13 +129,17 @@ var Map = function(elem, lat, lng) {
     this.init(lat, lng);
 };
 
+function onClick(e) {
+    alert(this.getLatLng());
+}
+
 Map.prototype.init = function(lat, lng) {
 
     this.lat = lat;
     this.lng = lng;
 
     var cities = L.layerGroup();
-  	L.marker([48.993611,8.761111]).bindPopup("Aalkistensee").addTo(cities);
+  	L.marker([48.993611,8.761111]).bindPopup("Aalkistensee").addTo(cities).on('click', onClick);
     L.marker([47.936389,9.529444]).bindPopup("Altshauser Weiher ").addTo(cities);
     L.marker([47.786667,9.177778]).bindPopup("Andelshofer Weiher ").addTo(cities);
     L.marker([47.776111,9.927222]).bindPopup("Argensee").addTo(cities);
@@ -148,7 +152,7 @@ Map.prototype.init = function(lat, lng) {
     L.marker([47.818396,9.9566]).bindPopup("Ellerazhofer Weiher ").addTo(cities);
     L.marker([48.083333,9.616667]).bindPopup("Federsee").addTo(cities);
     L.marker([48.010556,7.817778]).bindPopup("Flückigersee").addTo(cities);
-    L.marker([48.920556,8.178333]).bindPopup("Goldkanal").addTo(cities);
+    L.marker([48.920556,8.178333]).bindPopup("Goldkanal").on('click', onClick).addTo(cities);
     L.marker([47.968889,10.024167]).bindPopup("Großer Ursee").addTo(cities);
     L.marker([47.720996,9.82572]).bindPopup("Großweiher").addTo(cities);
     L.marker([47.89488,9.459029]).bindPopup("Guggenhauser Weiher ").addTo(cities);
@@ -228,7 +232,10 @@ var overlayMaps = {
     // L.control.layers(baseMaps, overlayMaps).addTo(this.map);
     // this.map = L.map(this.$map[0]).setView([lat, lng], 6);
 
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    //var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+
+
     var mapTiles = new L.TileLayer(osmUrl, {
         attribution: 'Map data &copy; '
         + '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
@@ -280,6 +287,11 @@ Map.prototype.centerOnLocation = function(lat, lng) {
         this.marker.on('drag', function(event) {
             self.setLatLng(event.target.getLatLng());
         });
+
+        /*this.marker.on('click', function(event) {
+            alert(e.latlng);
+        });*/
+
 
         this.marker
             .animateDragging()

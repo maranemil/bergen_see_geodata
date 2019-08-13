@@ -34,9 +34,13 @@
 * https://www.osmand.net/
 * https://www.google.de/maps?hl=en&tab=rl
 * https://developers.google.com/maps/documentation/maps-static/intro?hl=de
+* https://leaflet-extras.github.io/leaflet-providers/preview/
+* https://openmaptiles.org/docs/website/leaflet/
+* https://openmaptiles.org/viewers/
 
 #### APIs
 
 * https://leafletjs.com/
 * https://openlayers.org/en/latest/examples/
+* https://github.com/mapbox/mapbox-gl-leaflet
 
