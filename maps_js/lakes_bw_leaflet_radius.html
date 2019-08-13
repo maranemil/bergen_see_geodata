@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Leaflet.js - Mark Radius</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.8.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css">
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js"></script>
+    <!--
+    http://jsfiddle.net/somethingkindawierd/aAVZ7/
+    -->
+</head>
+<body>
+<div class="form">
+    <label>Operating Radius: </label>
+    <select name="radius">
+        <option value="5">5 Miles</option>
+        <option value="10">10 Miles</option>
+        <option value="25">25 Miles</option>
+        <option value="50">50 Miles</option>
+    </select>
+</div>
+<div id="map">
+    <div class="map-overlay"></div>
+    <div class="map-container"></div>
+</div>
+
+<style>
+    /* disable selection on all elements */
+* {
+    -webkit-user-select: none;
+    user-select:none;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#map {
+    position: absolute;
+    top: 35px;
+    bottom: 25px;
+    right: 25px;
+    left: 25px;
+    box-shadow: 0 4px 16px 0 black;
+}
+
+#map > div {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#map.show-message {
+    pointer-events: none;
+}
+
+#map .map-overlay {
+    display: none;
+    z-index: 2;
+}
+
+#map.show-message .map-overlay {
+    display: block;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    color: #eee;
+    text-shadow: 0 -1px 1px black;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+
+.center > div {
+    padding: 20%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  -webkit-transition: margin 0.2s;
+     -moz-transition: margin 0.2s;
+       -o-transition: margin 0.2s;
+          transition: margin 0.2s;
+}
+
+
+
+
+
+</style>
+<script>
+    // Animated marker via http://bl.ocks.org/4284949
+L.Marker.prototype.animateDragging = function () {
+  var iconMargin, shadowMargin;
+  this.on('dragstart', function () {
+    if (!iconMargin) {
+      iconMargin = parseInt(L.DomUtil.getStyle(this._icon, 'marginTop'));
+      shadowMargin = parseInt(L.DomUtil.getStyle(this._shadow, 'marginLeft'));
+    }
+    this._icon.style.marginTop = (iconMargin - 15)  + 'px';
+    this._shadow.style.marginLeft = (shadowMargin + 8) + 'px';
+  });
+  return this.on('dragend', function () {
+    this._icon.style.marginTop = iconMargin + 'px';
+    this._shadow.style.marginLeft = shadowMargin + 'px';
+  });
+};
+
+var Map = function(elem, lat, lng) {
+    this.$el = $(elem);
+    this.$overlay = this.$el.find('.map-overlay');
+    this.$map = this.$el.find('.map-container');
+    this.init(lat, lng);
+};
+
+function onClick(e) {
+    alert(this.getLatLng());
+}
+
+Map.prototype.init = function(lat, lng) {
+
+    this.lat = lat;
+    this.lng = lng;
+
+    var cities = L.layerGroup();
+  	L.marker([48.993611,8.761111]).bindPopup("Aalkistensee").addTo(cities).on('click', onClick);
+    L.marker([47.936389,9.529444]).bindPopup("Altshauser Weiher ").addTo(cities);
+    L.marker([47.786667,9.177778]).bindPopup("Andelshofer Weiher ").addTo(cities);
+    L.marker([47.776111,9.927222]).bindPopup("Argensee").addTo(cities);
+    L.marker([47.417222,9.999722]).bindPopup("Badsee").addTo(cities);
+    L.marker([47.63333,9.3666]).bindPopup("Bodensee").addTo(cities);
+    L.marker([49.124444,9.386944]).bindPopup("Breitenauer See").addTo(cities);
+    L.marker([47.6125,9.65]).bindPopup("Degersee").addTo(cities);
+    L.marker([47.580926,7.959681]).bindPopup("Eggbergbecken").addTo(cities);
+    L.marker([49.056389,8.913056]).bindPopup("Ehmetsklinge").addTo(cities);
+    L.marker([47.818396,9.9566]).bindPopup("Ellerazhofer Weiher ").addTo(cities);
+    L.marker([48.083333,9.616667]).bindPopup("Federsee").addTo(cities);
+    L.marker([48.010556,7.817778]).bindPopup("Flückigersee").addTo(cities);
+    L.marker([48.920556,8.178333]).bindPopup("Goldkanal").on('click', onClick).addTo(cities);
+    L.marker([47.968889,10.024167]).bindPopup("Großer Ursee").addTo(cities);
+    L.marker([47.720996,9.82572]).bindPopup("Großweiher").addTo(cities);
+    L.marker([47.89488,9.459029]).bindPopup("Guggenhauser Weiher ").addTo(cities);
+    L.marker([47.876305,9.577088]).bindPopup("Häcklerweiher").addTo(cities);
+    L.marker([48.909444,10.153333]).bindPopup("Hochwasserrückhaltebecken Buch").addTo(cities);
+    L.marker([48.795,9.661111]).bindPopup("Hochwasserrückhaltebecken Lorch-Waldhausen").addTo(cities);
+    L.marker([47.959444,10.058333]).bindPopup("Hochwasserrückhaltebecken Rappenbach").addTo(cities);
+    L.marker([48.862778,9.808889]).bindPopup("Hochwasserrückhaltebecken Rehnenmühle").addTo(cities);
+    L.marker([48.873333,9.752222]).bindPopup("Hochwasserrückhaltebecken Reichenbach").addTo(cities);
+    L.marker([48.8058,9.4898]).bindPopup("Hochwasserrückhaltebecken Schorndorf-Winterbach").addTo(cities);
+    L.marker([48.8058,9.4898]).bindPopup("Holzmühleweiher").addTo(cities);
+    L.marker([47.659028,7.96111]).bindPopup("Hornbergbecken").addTo(cities);
+    L.marker([47.855278,9.380278]).bindPopup("Illmensee").addTo(cities);
+    L.marker([47.92778,8.36943]).bindPopup("Kirnbergsee").addTo(cities);
+    L.marker([47.931962,9.447834]).bindPopup("Königseggsee").addTo(cities);
+    L.marker([47.97,9.311944]).bindPopup("Lausheimer Weiher").addTo(cities);
+    L.marker([48.017334,8.290555]).bindPopup("Linachtalsperre").addTo(cities);
+    L.marker([48.8353,9.219]).bindPopup("Max-Eyth-See").addTo(cities);
+    L.marker([47.720889,8.24833]).bindPopup("Mettmabecken").addTo(cities);
+    L.marker([47.838925,9.826138]).bindPopup("Metzisweiler Weiher").addTo(cities);
+    L.marker([47.754444,9.022222]).bindPopup("Mindelsee").addTo(cities);
+    L.marker([48.58056,8.49361]).bindPopup("Nagoldtalsperre").addTo(cities);
+    L.marker([47.794722,7.799167]).bindPopup("Nonnenmattweiher").addTo(cities);
+    L.marker([47.710286,9.902758]).bindPopup("Oberer Schlossweiher").addTo(cities);
+    L.marker([47.798889,9.88]).bindPopup("Obersee").addTo(cities);
+    L.marker([48.0125,9.680278]).bindPopup("Olzreuter See").addTo(cities);
+    L.marker([48.6474203, 9.3706219]).bindPopup("Röhmsee").addTo(cities);
+    L.marker([47.874167,9.836944]).bindPopup("Rohrsee").addTo(cities);
+    L.marker([47.801523,9.680701]).bindPopup("Rösslerweiher").addTo(cities);
+    L.marker([48.041454,10.000097]).bindPopup("Roter Weiher").addTo(cities);
+    L.marker([47.87,9.365833]).bindPopup("Ruschweiler See ").addTo(cities);
+    L.marker([47.612222,9.634167]).bindPopup("Schleinsee").addTo(cities);
+    L.marker([47.771944,9.293333]).bindPopup("Schlosssee").addTo(cities);
+    L.marker([47.821389,8.152778]).bindPopup("Schluchsee").addTo(cities);
+    L.marker([47.889167,9.564444]).bindPopup("Schreckensee").addTo(cities);
+    L.marker([47.814167,9.665]).bindPopup("Schwaigfurter Weiher").addTo(cities);
+    L.marker([47.753889,8.190556]).bindPopup("Schwarzatalsperre").addTo(cities);
+    L.marker([48.654722,8.329444]).bindPopup("Schwarzenbachtalsperre").addTo(cities);
+    L.marker([47.922747,9.756386]).bindPopup("Stadtsee").addTo(cities);
+    L.marker([47.826184,10.040649]).bindPopup("Stadtweiher").addTo(cities);
+    L.marker([48.105,10.136944]).bindPopup("Stausee Dettingen").addTo(cities);
+    L.marker([48.006111,10.113889]).bindPopup("Stausee Tannheim").addTo(cities);
+    L.marker([48.03568,9.254651]).bindPopup("Steidlesee").addTo(cities);
+    L.marker([48.691389,7.935278]).bindPopup("Steingrundsee").addTo(cities);
+    L.marker([48.398889,8.365556]).bindPopup("Talsperre Kleine Kinzig").addTo(cities);
+    L.marker([47.893333,8.146111]).bindPopup("Titisee").addTo(cities);
+    L.marker([47.649444,7.921667]).bindPopup("Wehratalsperre").addTo(cities);
+    L.marker([47.851944,8.125833]).bindPopup("Windgfällweiher").addTo(cities);
+    L.marker([47.688333,8.251389]).bindPopup("Witznautalsperre").addTo(cities);
+    L.marker([47.766431,9.917344]).bindPopup("Wuhrmühleweiher").addTo(cities);
+    L.marker([47.78556,9.87722]).bindPopup("Zellersee").addTo(cities);
+
+
+
+/*
+var grayscale = L.tileLayer(mapboxUrl, {id: 'MapID', attribution: mapboxAttribution}),
+    streets   = L.tileLayer(mapboxUrl, {id: 'MapID', attribution: mapboxAttribution});
+*/
+     this.map = L.map(
+    'map',{
+    	center: [lat, lng],
+			zoom: 8,
+			layers: [ cities]
+      }
+    );
+
+  /*  var baseMaps = {
+    "Grayscale": grayscale,
+    "Streets": streets
+};
+
+var overlayMaps = {
+    "Cities": cities
+};*/
+
+
+    // L.control.layers(baseMaps, overlayMaps).addTo(this.map);
+    // this.map = L.map(this.$map[0]).setView([lat, lng], 6);
+
+    //var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmUrl = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+
+
+    var mapTiles = new L.TileLayer(osmUrl, {
+        attribution: 'Map data &copy; '
+        + '<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
+        + '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 18
+    });
+
+    this.map.addLayer(mapTiles);
+};
+
+
+
+Map.prototype.setCircle = function(latLng, meters) {
+    if(!this.circle) {
+        this.circle = L.circle(latLng, meters, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.3
+        }).addTo(this.map);
+    }
+    else {
+        this.circle.setLatLng(latLng);
+        this.circle.setRadius(meters);
+        this.circle.redraw();
+    }
+    this.map.fitBounds(this.circle.getBounds());
+};
+
+Map.prototype.setLatLng = function(latLng) {
+    this.lat = latLng.lat;
+    this.lng = latLng.lng;
+
+    if(this.circle) {
+        this.circle.setLatLng(latLng);
+    }
+};
+
+Map.prototype.centerOnLocation = function(lat, lng) {
+
+    var self = this;
+    this.lat = lat;
+    this.lng = lng;
+
+    if(!this.marker) {
+        this.marker = L.marker([this.lat, this.lng], {
+            draggable: true
+        });
+
+        this.marker.on('drag', function(event) {
+            self.setLatLng(event.target.getLatLng());
+        });
+
+        /*this.marker.on('click', function(event) {
+            alert(e.latlng);
+        });*/
+
+
+        this.marker
+            .animateDragging()
+            .addTo(this.map);
+    }
+
+    this.map.setView([this.lat, this.lng], 16);
+    this.setCircle([this.lat, this.lng], this.milesToMeters(5));
+};
+
+Map.prototype.getCurrentLocation = function(success, error) {
+
+    var self = this;
+    var onSuccess = function(lat, lng) {
+        success(new L.LatLng(lat, lng));
+    };
+
+    // get location via geoplugin.net.
+    // Typically faster than browser's geolocation, but less accurate.
+    var geoplugin = function() {
+        jQuery.getScript('http://www.geoplugin.net/javascript.gp', function() {
+            onSuccess(geoplugin_latitude(), geoplugin_longitude());
+        });
+    };
+
+    // get location via browser's geolocation.
+    // Typically slower than geoplugin.net, but more accurate.
+    var navGeoLoc = function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            success(new L.LatLng(position.coords.latitude, position.coords.longitude));
+        }, function(positionError) {
+            geoplugin();
+            //error(positionError.message);
+        });
+    };
+
+    if(navigator.geolocation) {
+        navGeoLoc();
+    }
+    else {
+        geoplugin();
+    }
+};
+
+// Overlay message methods
+Map.prototype.dismissMessage = function() {
+    this.$el.removeClass('show-message');
+    this.$overlay.html('');
+};
+
+Map.prototype.showMessage = function(html) {
+    this.$overlay.html('<div class="center"><div>' + html + '</div></div>');
+    this.$el.addClass('show-message');
+};
+
+// Conversion Helpers
+Map.prototype.milesToMeters = function(miles) {
+    return miles * 1069;
+};
+
+jQuery(function($) {
+
+    var map = new Map('#map', 47.78556, 9.87722);
+    map.showMessage('<p><span>Acquiring Current Location.</span><br /><br />'
+                   + '<span>Please ensure the app has permission to access your location.</span></p>');
+
+    map.getCurrentLocation(function(latLng) {
+        map.centerOnLocation(latLng.lat, latLng.lng);
+        map.dismissMessage();
+    }, function(errorMessage) {
+        map.showMessage('<p><span>Location Error:</span><br /><br />'
+                    + '<span>' + errorMessage + '</span></p>');
+    });
+
+
+
+    var s = $('select').on('change', function(e) {
+        var value = $(this).val();
+        var meters = map.milesToMeters(value);
+        map.setCircle([map.lat, map.lng], meters);
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
