@@ -1,102 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!--
     Add multiple markers in leaflet.js
     http://bl.ocks.org/d3noob/9150014
     -->
     <title>Title</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
-</head>
-<body>
- <div id="map" style="width: 1600px; height: 800px"></div>
-    <script  src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
+  </head>
+  <body>
+    <div id="map" style="width: 1600px; height: 800px"></div>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
     <script>
-	var planes = [
+      var lakes = [
+        ["Aalkistensee", "0,136", "KA", "PF", "48.993611", "8.761111"],
+        ["Altshauser Weiher ", "0,103", "TÜ", "RV", "47.936389", "9.529444"],
+        ["Andelshofer Weiher ", "0,322", "TÜ", "FN", "47.786667", "9.177778"],
+        ["Argensee", "0,267", "TÜ", "RV", "47.776111", "9.927222"],
+        ["Badsee", "0,425", "TÜ", "RV", "47.417222", "9.999722"],
+        ["Bodensee", "536", "FR", "FN", "47.63333", "9.3666"],
+        ["Breitenauer See", "0,47", "S", "HN", "49.124444", "9.386944"],
+        ["Degersee", "0,302", "TÜ", "FN", "47.6125", "9.65"],
+        ["Eggbergbecken", "0,12", "FR", "WT", "47.580926", "7.959681"],
+        ["Ehmetsklinge", "0,138", "S", "HN", "49.056389", "8.913056"],
+        ["Ellerazhofer Weiher ", "0,46", "TÜ", "RV", "47.818396", "9.9566"],
+        ["Federsee", "1,39", "TÜ", "BC", "48.083333", "9.616667"],
+        ["Flückigersee", "0,1 ", "FR", "FR", "48.010556", "7.817778"],
+        ["Goldkanal", "1,34", "KA", "RA", "48.920556", "8.178333"],
+        ["Großer Ursee", "0,194", "TÜ", "RV", "47.968889", "10.024167"],
+        ["Großweiher", "0,114 ", "TÜ", "RV", "47.720996", "9.82572"],
+        ["Guggenhauser Weiher ", "0,101", "TÜ", "RV", "47.89488", "9.459029"],
+        ["Häcklerweiher", "0,135", "TÜ", "RV", "47.876305", "9.577088"],
+        [
+          "Hochwasserrückhaltebecken Buch",
+          "0,28",
+          "S",
+          "AA",
+          "48.909444",
+          "10.153333"
+        ],
+        [
+          "Hochwasserrückhaltebecken Lorch-Waldhausen",
+          "0,37",
+          "S",
+          "AA",
+          "48.795",
+          "9.661111"
+        ],
+        [
+          "Hochwasserrückhaltebecken Rappenbach",
+          "0,4",
+          "TÜ",
+          "BC",
+          "47.959444",
+          "10.058333"
+        ],
+        [
+          "Hochwasserrückhaltebecken Rehnenmühle",
+          "0,565",
+          "S",
+          "AA",
+          "48.862778",
+          "9.808889"
+        ],
+        [
+          "Hochwasserrückhaltebecken Reichenbach",
+          "0,176",
+          "S",
+          "AA",
+          "48.873333",
+          "9.752222"
+        ],
+        [
+          "Hochwasserrückhaltebecken Schorndorf-Winterbach",
+          "0,62",
+          "S",
+          "WN",
+          "48.8058",
+          "9.4898"
+        ],
+        ["Holzmühleweiher", "0,238", "TÜ", "RV", "48.8058", "9.4898"],
+        ["Hornbergbecken", "0,17", "FR", "WT", "47.659028", "7.96111"],
+        ["Illmensee", "0,64263", "TÜ", "SIG", "47.855278", "9.380278"],
+        ["Kirnbergsee", "0,35", "FR", "VS", "47.92778", "8.36943"],
+        ["Königseggsee", "0,156", "TÜ", "RV", "47.931962", "9.447834"],
+        ["Lausheimer Weiher", "0,101", "TÜ", "SIG", "47.97", "9.311944"],
+        ["Linachtalsperre", "0,11", "FR", "VS", "48.017334", "8.290555"],
+        ["Max-Eyth-See", "0,173", "S", "S", "48.8353", "9.219"],
+        ["Mettmabecken", "0,2", "FR", "WT", "47.720889", "8.24833"],
+        ["Metzisweiler Weiher", "0,268", "TÜ", "RV", "47.838925", "9.826138"],
+        ["Mindelsee", "1,02", "FR", "KN", "47.754444", "9.022222"],
+        ["Nagoldtalsperre", "0,376", "FR", "FDS", "48.58056", "8.49361"],
+        ["Nonnenmattweiher", "0,78", "FR", "LÖ", "47.794722", "7.799167"],
+        ["Oberer Schlossweiher", "0,112", "TÜ", "RV", "47.710286", "9.902758"],
+        ["Obersee", "0,253", "TÜ", "RV", "47.798889", "9.88"],
+        ["Olzreuter See", "0,14", "TÜ", "BC", "48.0125", "9.680278"],
+        ["Röhmsee", "0,13", "S", "ES", "48.6474203", "9.3706219"],
+        ["Rohrsee", "0,551", "TÜ", "RV", "47.874167", "9.836944"],
+        ["Rösslerweiher", "0,2", "TÜ", "RV", "47.801523", "9.680701"],
+        ["Roter Weiher", "0,104", "TÜ", "BC", "48.041454", "10.000097"],
+        ["Ruschweiler See ", "0,22124", "TÜ", "SIG", "47.87", "9.365833"],
+        ["Schleinsee", "0,141", "TÜ", "FN", "47.612222", "9.634167"],
+        ["Schlosssee", "0,18", "TÜ", "FN", "47.771944", "9.293333"],
+        ["Schluchsee", "5,14", "FR", "FR", "47.821389", "8.152778"],
+        ["Schreckensee", "0,32", "TÜ", "RV", "47.889167", "9.564444"],
+        ["Schwaigfurter Weiher", "0,138", "TÜ", "BC", "47.814167", "9.665"],
+        ["Schwarzatalsperre", "0,2", "FR", "WT", "47.753889", "8.190556"],
+        ["Schwarzenbachtalsperre", "0,66", "KA", "RA", "48.654722", "8.329444"],
+        ["Stadtsee", "0,147", "TÜ", "RV", "47.922747", "9.756386"],
+        ["Stadtweiher", "0,176", "TÜ", "RV", "47.826184", "10.040649"],
+        ["Stausee Dettingen", "0,52", "TÜ", "BC", "48.105", "10.136944"],
+        ["Stausee Tannheim", "0,165", "TÜ", "BC", "48.006111", "10.113889"],
+        ["Steidlesee", "0,248", "TÜ", "SIG", "48.03568", "9.254651"],
+        ["Steingrundsee", "0,705742", "FR", "OG", "48.691389", "7.935278"],
+        [
+          "Talsperre Kleine Kinzig",
+          "0,62",
+          "KA",
+          "FDS",
+          "48.398889",
+          "8.365556"
+        ],
+        ["Titisee", "1,07", "FR", "FR", "47.893333", "8.146111"],
+        ["Wehratalsperre", "0,25", "FR", "WT", "47.649444", "7.921667"],
+        ["Windgfällweiher", "0,1081", "FR", "FR", "47.851944", "8.125833"],
+        ["Witznautalsperre", "0,14", "FR", "WT", "47.688333", "8.251389"],
+        ["Wuhrmühleweiher", "0,277", "TÜ", "RV", "47.766431", "9.917344"],
+        ["Zellersee", "0,102", "TÜ", "RV", "47.78556", "9.87722"]
+      ];
 
-            ["Aalkistensee","0,136","KA","PF","48.993611","8.761111"],
-            ["Altshauser Weiher ","0,103","TÜ","RV","47.936389","9.529444"],
-            ["Andelshofer Weiher ","0,322","TÜ","FN","47.786667","9.177778"],
-            ["Argensee","0,267","TÜ","RV","47.776111","9.927222"],
-            ["Badsee","0,425","TÜ","RV","47.417222","9.999722"],
-            ["Bodensee","536","FR","FN","47.63333","9.3666"],
-            ["Breitenauer See","0,47","S","HN","49.124444","9.386944"],
-            ["Degersee","0,302","TÜ","FN","47.6125","9.65"],
-            ["Eggbergbecken","0,12","FR","WT","47.580926","7.959681"],
-            ["Ehmetsklinge","0,138","S","HN","49.056389","8.913056"],
-            ["Ellerazhofer Weiher ","0,46","TÜ","RV","47.818396","9.9566"],
-            ["Federsee","1,39","TÜ","BC","48.083333","9.616667"],
-            ["Flückigersee","0,1 ","FR","FR","48.010556","7.817778"],
-            ["Goldkanal","1,34","KA","RA","48.920556","8.178333"],
-            ["Großer Ursee","0,194","TÜ","RV","47.968889","10.024167"],
-            ["Großweiher","0,114 ","TÜ","RV","47.720996","9.82572"],
-            ["Guggenhauser Weiher ","0,101","TÜ","RV","47.89488","9.459029"],
-            ["Häcklerweiher","0,135","TÜ","RV","47.876305","9.577088"],
-            ["Hochwasserrückhaltebecken Buch","0,28","S","AA","48.909444","10.153333"],
-            ["Hochwasserrückhaltebecken Lorch-Waldhausen","0,37","S","AA","48.795","9.661111"],
-            ["Hochwasserrückhaltebecken Rappenbach","0,4","TÜ","BC","47.959444","10.058333"],
-            ["Hochwasserrückhaltebecken Rehnenmühle","0,565","S","AA","48.862778","9.808889"],
-            ["Hochwasserrückhaltebecken Reichenbach","0,176","S","AA","48.873333","9.752222"],
-            ["Hochwasserrückhaltebecken Schorndorf-Winterbach","0,62","S","WN","48.8058","9.4898"],
-            ["Holzmühleweiher","0,238","TÜ","RV","48.8058","9.4898"],
-            ["Hornbergbecken","0,17","FR","WT","47.659028","7.96111"],
-            ["Illmensee","0,64263","TÜ","SIG","47.855278","9.380278"],
-            ["Kirnbergsee","0,35","FR","VS","47.92778","8.36943"],
-            ["Königseggsee","0,156","TÜ","RV","47.931962","9.447834"],
-            ["Lausheimer Weiher","0,101","TÜ","SIG","47.97","9.311944"],
-            ["Linachtalsperre","0,11","FR","VS","48.017334","8.290555"],
-            ["Max-Eyth-See","0,173","S","S","48.8353","9.219"],
-            ["Mettmabecken","0,2","FR","WT","47.720889","8.24833"],
-            ["Metzisweiler Weiher","0,268","TÜ","RV","47.838925","9.826138"],
-            ["Mindelsee","1,02","FR","KN","47.754444","9.022222"],
-            ["Nagoldtalsperre","0,376","FR","FDS","48.58056","8.49361"],
-            ["Nonnenmattweiher","0,78","FR","LÖ","47.794722","7.799167"],
-            ["Oberer Schlossweiher","0,112","TÜ","RV","47.710286","9.902758"],
-            ["Obersee","0,253","TÜ","RV","47.798889","9.88"],
-            ["Olzreuter See","0,14","TÜ","BC","48.0125","9.680278"],
-            ["Röhmsee","0,13","S","ES","48.6474203","9.3706219"],
-            ["Rohrsee","0,551","TÜ","RV","47.874167","9.836944"],
-            ["Rösslerweiher","0,2","TÜ","RV","47.801523","9.680701"],
-            ["Roter Weiher","0,104","TÜ","BC","48.041454","10.000097"],
-            ["Ruschweiler See ","0,22124","TÜ","SIG","47.87","9.365833"],
-            ["Schleinsee","0,141","TÜ","FN","47.612222","9.634167"],
-            ["Schlosssee","0,18","TÜ","FN","47.771944","9.293333"],
-            ["Schluchsee","5,14","FR","FR","47.821389","8.152778"],
-            ["Schreckensee","0,32","TÜ","RV","47.889167","9.564444"],
-            ["Schwaigfurter Weiher","0,138","TÜ","BC","47.814167","9.665"],
-            ["Schwarzatalsperre","0,2","FR","WT","47.753889","8.190556"],
-            ["Schwarzenbachtalsperre","0,66","KA","RA","48.654722","8.329444"],
-            ["Stadtsee","0,147","TÜ","RV","47.922747","9.756386"],
-            ["Stadtweiher","0,176","TÜ","RV","47.826184","10.040649"],
-            ["Stausee Dettingen","0,52","TÜ","BC","48.105","10.136944"],
-            ["Stausee Tannheim","0,165","TÜ","BC","48.006111","10.113889"],
-            ["Steidlesee","0,248","TÜ","SIG","48.03568","9.254651"],
-            ["Steingrundsee","0,705742","FR","OG","48.691389","7.935278"],
-            ["Talsperre Kleine Kinzig","0,62","KA","FDS","48.398889","8.365556"],
-            ["Titisee","1,07","FR","FR","47.893333","8.146111"],
-            ["Wehratalsperre","0,25","FR","WT","47.649444","7.921667"],
-            ["Windgfällweiher","0,1081","FR","FR","47.851944","8.125833"],
-            ["Witznautalsperre","0,14","FR","WT","47.688333","8.251389"],
-            ["Wuhrmühleweiher","0,277","TÜ","RV","47.766431","9.917344"],
-            ["Zellersee","0,102","TÜ","RV","47.78556","9.87722"]
+      var map = L.map("map").setView([48.03568, 9.254651], 8);
+      mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+      L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; " + mapLink + " Contributors",
+        maxZoom: 18
+      }).addTo(map);
 
-		];
-
-        var map = L.map('map').setView([48.03568,9.254651], 8);
-        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-        L.tileLayer(
-            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; ' + mapLink + ' Contributors',
-            maxZoom: 18,
-            }).addTo(map);
-
-		for (var i = 0; i < planes.length; i++) {
-			marker = new L.marker([planes[i][4],planes[i][5]])
-				.bindPopup(planes[i][0])
-				.addTo(map);
-		}
-
+      for (var i = 0; i < lakes.length; i++) {
+        marker = new L.marker([lakes[i][4], lakes[i][5]])
+          .bindPopup(lakes[i][0])
+          .addTo(map);
+      }
     </script>
-</body>
+  </body>
 </html>
