@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <!--
     Add multiple markers in leaflet.js
     http://bl.ocks.org/d3noob/9150014
     -->
     <title>Title</title>
     <link
-      rel="stylesheet"
-      href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+            rel="stylesheet"
+            href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
-  </head>
-  <body>
-    <div id="map" style="width: 1600px; height: 800px"></div>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script>
-      var lakes = [
+</head>
+<body>
+<div id="map" style="width: 1600px; height: 800px"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script>
+    var lakes = [
         ["Aalkistensee", "0,136", "KA", "PF", "48.993611", "8.761111"],
         ["Altshauser Weiher ", "0,103", "TÜ", "RV", "47.936389", "9.529444"],
         ["Andelshofer Weiher ", "0,322", "TÜ", "FN", "47.786667", "9.177778"],
@@ -36,52 +36,52 @@
         ["Guggenhauser Weiher ", "0,101", "TÜ", "RV", "47.89488", "9.459029"],
         ["Häcklerweiher", "0,135", "TÜ", "RV", "47.876305", "9.577088"],
         [
-          "Hochwasserrückhaltebecken Buch",
-          "0,28",
-          "S",
-          "AA",
-          "48.909444",
-          "10.153333"
+            "Hochwasserrückhaltebecken Buch",
+            "0,28",
+            "S",
+            "AA",
+            "48.909444",
+            "10.153333"
         ],
         [
-          "Hochwasserrückhaltebecken Lorch-Waldhausen",
-          "0,37",
-          "S",
-          "AA",
-          "48.795",
-          "9.661111"
+            "Hochwasserrückhaltebecken Lorch-Waldhausen",
+            "0,37",
+            "S",
+            "AA",
+            "48.795",
+            "9.661111"
         ],
         [
-          "Hochwasserrückhaltebecken Rappenbach",
-          "0,4",
-          "TÜ",
-          "BC",
-          "47.959444",
-          "10.058333"
+            "Hochwasserrückhaltebecken Rappenbach",
+            "0,4",
+            "TÜ",
+            "BC",
+            "47.959444",
+            "10.058333"
         ],
         [
-          "Hochwasserrückhaltebecken Rehnenmühle",
-          "0,565",
-          "S",
-          "AA",
-          "48.862778",
-          "9.808889"
+            "Hochwasserrückhaltebecken Rehnenmühle",
+            "0,565",
+            "S",
+            "AA",
+            "48.862778",
+            "9.808889"
         ],
         [
-          "Hochwasserrückhaltebecken Reichenbach",
-          "0,176",
-          "S",
-          "AA",
-          "48.873333",
-          "9.752222"
+            "Hochwasserrückhaltebecken Reichenbach",
+            "0,176",
+            "S",
+            "AA",
+            "48.873333",
+            "9.752222"
         ],
         [
-          "Hochwasserrückhaltebecken Schorndorf-Winterbach",
-          "0,62",
-          "S",
-          "WN",
-          "48.8058",
-          "9.4898"
+            "Hochwasserrückhaltebecken Schorndorf-Winterbach",
+            "0,62",
+            "S",
+            "WN",
+            "48.8058",
+            "9.4898"
         ],
         ["Holzmühleweiher", "0,238", "TÜ", "RV", "48.8058", "9.4898"],
         ["Hornbergbecken", "0,17", "FR", "WT", "47.659028", "7.96111"],
@@ -118,12 +118,12 @@
         ["Steidlesee", "0,248", "TÜ", "SIG", "48.03568", "9.254651"],
         ["Steingrundsee", "0,705742", "FR", "OG", "48.691389", "7.935278"],
         [
-          "Talsperre Kleine Kinzig",
-          "0,62",
-          "KA",
-          "FDS",
-          "48.398889",
-          "8.365556"
+            "Talsperre Kleine Kinzig",
+            "0,62",
+            "KA",
+            "FDS",
+            "48.398889",
+            "8.365556"
         ],
         ["Titisee", "1,07", "FR", "FR", "47.893333", "8.146111"],
         ["Wehratalsperre", "0,25", "FR", "WT", "47.649444", "7.921667"],
@@ -131,20 +131,20 @@
         ["Witznautalsperre", "0,14", "FR", "WT", "47.688333", "8.251389"],
         ["Wuhrmühleweiher", "0,277", "TÜ", "RV", "47.766431", "9.917344"],
         ["Zellersee", "0,102", "TÜ", "RV", "47.78556", "9.87722"]
-      ];
+    ];
 
-      var map = L.map("map").setView([48.03568, 9.254651], 8);
-      mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-      L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    var map = L.map("map").setView([48.03568, 9.254651], 8);
+    mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+    L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; " + mapLink + " Contributors",
         maxZoom: 18
-      }).addTo(map);
+    }).addTo(map);
 
-      for (var i = 0; i < lakes.length; i++) {
+    for (var i = 0; i < lakes.length; i++) {
         marker = new L.marker([lakes[i][4], lakes[i][5]])
-          .bindPopup(lakes[i][0])
-          .addTo(map);
-      }
-    </script>
-  </body>
+            .bindPopup(lakes[i][0])
+            .addTo(map);
+    }
+</script>
+</body>
 </html>

@@ -3,13 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="4d86cac6-0d92-43cf-bf06-ba28d1480845" name="Default Changelist" comment="geodata">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_layers_leaflet.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_layers_leaflet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet_radius.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet_radius.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_plotly.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_plotly.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,29 +29,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2646" />
-    <option name="y" value="558" />
-    <option name="width" value="1246" />
-    <option name="height" value="789" />
-  </component>
   <component name="ProjectId" id="1PPD4kWiEmjB62pRXstM1QYWJbo" />
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cakemelody105_Cake" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,6 +52,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565676601840</updated>
+      <workItem from="1587327924415" duration="261000" />
+      <workItem from="1587328286315" duration="57000" />
+      <workItem from="1587328377598" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="geodata">
       <created>1565676954183</created>
@@ -69,21 +66,33 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="geodata" />
     <option name="LAST_COMMIT_MESSAGE" value="geodata" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="489" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587328433042">
+      <screen x="46" y="27" width="1320" height="741" />
+    </state>
+    <state x="489" y="155" width="424" height="491" key="FileChooserDialogImpl/46.27.1320.741@46.27.1320.741" timestamp="1587328433042" />
+    <state x="195" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1587328327517">
+      <screen x="46" y="27" width="1320" height="741" />
+    </state>
+    <state x="195" y="31" width="1022" height="737" key="SettingsEditor/46.27.1320.741@46.27.1320.741" timestamp="1587328327517" />
   </component>
 </project>

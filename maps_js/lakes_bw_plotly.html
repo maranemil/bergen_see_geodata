@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Title</title>
-  </head>
-  <body>
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <!--
-    Plotly chart will be drawn inside this DIV
-    https://plot.ly/javascript/scattermapbox/
-    https://jsfiddle.net/crisuwork/vgwzx0mj/11/
-    -->
-    <div id="myDiv"></div>
-    <script>
-      var data = [
+</head>
+<body>
+<!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!--
+Plotly chart will be drawn inside this DIV
+https://plot.ly/javascript/scattermapbox/
+https://jsfiddle.net/crisuwork/vgwzx0mj/11/
+-->
+<div id="myDiv"></div>
+<script>
+    var data = [
         {
-          type: "scattermapbox",
-          lat: ["47.63333"],
-          lon: ["9.3666"],
-          mode: "markers",
-          marker: {
-            size: 14
-          },
-          text: ["Bodensee"]
+            type: "scattermapbox",
+            lat: ["47.63333"],
+            lon: ["9.3666"],
+            mode: "markers",
+            marker: {
+                size: 14
+            },
+            text: ["Bodensee"]
         },
         {
-          type: "scattermapbox",
-          lat: ["47.821389"],
-          lon: ["8.152778"],
-          mode: "markers",
-          marker: {
-            size: 14
-          },
-          text: ["Schluchsee"]
+            type: "scattermapbox",
+            lat: ["47.821389"],
+            lon: ["8.152778"],
+            mode: "markers",
+            marker: {
+                size: 14
+            },
+            text: ["Schluchsee"]
         },
         {
-          type: "scattermapbox",
-          lat: ["48.083333"],
-          lon: ["9.616667"],
-          mode: "markers",
-          marker: {
-            size: 14
-          },
-          text: ["Federsee"]
+            type: "scattermapbox",
+            lat: ["48.083333"],
+            lon: ["9.616667"],
+            mode: "markers",
+            marker: {
+                size: 14
+            },
+            text: ["Federsee"]
         },
         {
-          type: "scattermapbox",
-          lat: ["48.920556"],
-          lon: ["8.178333"],
-          mode: "markers",
-          marker: {
-            size: 14
-          },
-          text: ["Goldkanal"]
+            type: "scattermapbox",
+            lat: ["48.920556"],
+            lon: ["8.178333"],
+            mode: "markers",
+            marker: {
+                size: 14
+            },
+            text: ["Goldkanal"]
         }
-      ];
+    ];
 
-      var layout = {
+    var layout = {
         autosize: true,
         width: 1800,
         height: 800,
         margin: {
-          l: 50,
-          r: 50,
-          b: 100,
-          t: 100,
-          pad: 4
+            l: 50,
+            r: 50,
+            b: 100,
+            t: 100,
+            pad: 4
         },
         hovermode: "closest",
         mapbox: {
-          bearing: 0,
-          center: {
-            lat: 48.8353,
-            lon: 9.219
-          },
-          pitch: 0,
-          zoom: 6
+            bearing: 0,
+            center: {
+                lat: 48.8353,
+                lon: 9.219
+            },
+            pitch: 0,
+            zoom: 6
         }
-      };
-      Plotly.setPlotConfig({
+    };
+    Plotly.setPlotConfig({
         mapboxAccessToken:
-          "pk.eyJ1IjoiZXRwaW5hcmQiLCJhIjoiY2luMHIzdHE0MGFxNXVubTRxczZ2YmUxaCJ9.hwWZful0U2CQxit4ItNsiQ"
-      });
-      Plotly.plot("myDiv", data, layout, { showSendToCloud: true });
-    </script>
-  </body>
+            "pk.eyJ1IjoiZXRwaW5hcmQiLCJhIjoiY2luMHIzdHE0MGFxNXVubTRxczZ2YmUxaCJ9.hwWZful0U2CQxit4ItNsiQ"
+    });
+    Plotly.plot("myDiv", data, layout, {showSendToCloud: true});
+</script>
+</body>
 </html>
