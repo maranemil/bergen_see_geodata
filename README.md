@@ -8,9 +8,9 @@
 
 
 
-### Referenes
+## Referenes
 
-#### Lakes / See 
+### Lakes / See 
 
 * https://de.m.wikipedia.org/wiki/Liste_von_Seen_in_Deutschland
 *
@@ -19,12 +19,12 @@
 * https://de.m.wikipedia.org/wiki/Liste_der_Seen_im_Saarland
 
 
-#### Mountains / Bergen
+### Mountains / Bergen
 
 * https://en.wikipedia.org/wiki/List_of_highest_mountains_of_Germany
 * https://en.wikipedia.org/wiki/List_of_highest_mountains_of_Austria
 
-#### Tools
+### Tools
 
 * https://www.openstreetmap.org/relation/2930833#map=12/48.2176/11.7557
 * https://www.openstreetmap.de/
@@ -38,13 +38,13 @@
 * https://openmaptiles.org/docs/website/leaflet/
 * https://openmaptiles.org/viewers/
 
-#### APIs
+### APIs
 
 * https://leafletjs.com/
 * https://openlayers.org/en/latest/examples/
 * https://github.com/mapbox/mapbox-gl-leaflet
 
-#### Python References
+### Python References
 
 * https://github.com/python-visualization/folium
 * https://github.com/komoot/staticmap

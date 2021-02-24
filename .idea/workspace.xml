@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d86cac6-0d92-43cf-bf06-ba28d1480845" name="Default Changelist" comment="geodata">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_layers_leaflet.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_layers_leaflet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet_radius.html" beforeDir="false" afterPath="$PROJECT_DIR$/maps_js/lakes_bw_leaflet_radius.html" afterDir="false" />
@@ -39,9 +40,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cakemelody105_Cake" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -55,6 +58,7 @@
       <workItem from="1587327924415" duration="261000" />
       <workItem from="1587328286315" duration="57000" />
       <workItem from="1587328377598" duration="58000" />
+      <workItem from="1614192974952" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="geodata">
       <created>1565676954183</created>
@@ -67,7 +71,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -85,14 +89,8 @@
     <MESSAGE value="geodata" />
     <option name="LAST_COMMIT_MESSAGE" value="geodata" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="489" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587328433042">
-      <screen x="46" y="27" width="1320" height="741" />
-    </state>
-    <state x="489" y="155" width="424" height="491" key="FileChooserDialogImpl/46.27.1320.741@46.27.1320.741" timestamp="1587328433042" />
-    <state x="195" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1587328327517">
-      <screen x="46" y="27" width="1320" height="741" />
-    </state>
-    <state x="195" y="31" width="1022" height="737" key="SettingsEditor/46.27.1320.741@46.27.1320.741" timestamp="1587328327517" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
