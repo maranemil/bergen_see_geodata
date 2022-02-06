@@ -52,7 +52,3 @@
 * https://plot.ly/python/scattermapbox/#multiple-markers
 * https://python-graph-gallery.com/315-a-world-map-of-surf-tweets/
 * https://python-graph-gallery.com/312-add-markers-on-folium-map/
-
-
-echo ".idea/*" >> .gitignore
-* git commit -am "remove .idea"
