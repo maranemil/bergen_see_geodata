@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+<!--suppress JSUnresolvedLibraryURL, JSPotentiallyInvalidConstructorUsage, JSUnresolvedVariable, JSUnresolvedFunction -->
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <!--
     Add multiple markers in leaflet.js
-    http://bl.ocks.org/d3noob/9150014
+    https://bl.ocks.org/d3noob/9150014
     -->
     <title>Title</title>
     <link
             rel="stylesheet"
-            href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+            href="https://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
 </head>
 <body>
 <div id="map" style="width: 1600px; height: 800px"></div>
-<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script src="https://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
 <script>
 	const lakes = [
 		["Aalkistensee", "0,136", "KA", "PF", "48.993611", "8.761111"],
@@ -134,8 +135,8 @@
 	];
 
 	const map = L.map("map").setView([48.03568, 9.254651], 8);
-	mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-	L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+	mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 		attribution: "&copy; " + mapLink + " Contributors",
 		maxZoom: 18
 	}).addTo(map);
